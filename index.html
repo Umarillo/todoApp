@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container" id="app">
+      <div class="card">
+        <div class="allInput">
+          <div class="input-list">
+            <h1>lore</h1>
+            <input
+              type="text"
+              v-model="inputValue"
+              :placeholder="PlaceHolder" />
+            <button
+              class="btn"
+              v-if="currentTodoId === null"
+              @click="addButton">
+              {{addClicker}}
+            </button>
+            <button v-else="" class="btn" @click="updateClicker">Change</button>
+            <input
+              type="text"
+              
+              :placeholder="SearchHolder" />
+          </div>
+          <ul class="list-item">
+            <li class="list-link" v-for="(note,index) in notes">
+              <input type="checkbox" />
+              <span>{{note.title}}</span>
+              <div class="button">
+                <a href="#" class="btn Change" @click="changeClick(note)"
+                  >Change</a
+                >
+                <a href="#" class="btn danger" @click="deleteClick(index)"
+                  >delete</a
+                >
+              </div>
+            </li>
+            <li class="list-link" v-if="notes.length === 0">
+              <strong>Запишите что нибудь :(</strong>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
